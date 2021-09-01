@@ -1,0 +1,29 @@
+{
+	"cmd": ["C:\\MinGW\\bin\\g++", "-std=c++17", "${file}", "-o", "out.exe"],
+	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+	"working_dir": "${file_path}",
+	"selector": "source.c, source.c++",
+	"shell": "true",
+	"variants":
+	[
+		{
+			"name": "run to text",
+			"cmd": ["out.exe<Input.txt>Output.txt"]
+
+		},
+		{
+			"name": "Run to cmd",
+			"cmd": ["start", "cmd.exe","/k", "out.exe && echo: && pause && exit"]
+		}
+	]
+}
+/*
+
+-set path accordingly and locate g++.exe in your drive.
+-use c++ version as per installed compiler
+-input.txt, output.txt should be in the same folder as cpp file.
+-ctrl+shift+B => Enter => compiles the file
+-ctrl+shift+B => run to text => executes the latest compiled file using input.txt & output.txt files
+-ctrl+shift+B => Run to cmd => opens a command prompt and executes the latest compiled file.
+
+*/
